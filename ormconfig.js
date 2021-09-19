@@ -1,4 +1,4 @@
-console.log(process.env.RDS_HOSTNAME)
+// const path = require('path')
 module.exports = {
   type: 'mysql',
   host: process.env.RDS_HOSTNAME,
@@ -9,5 +9,6 @@ module.exports = {
   synchronize: true,
   entities: [
     `${process.env.TS_NODE_DEV === undefined ? 'dist' : 'src'}/entities/index.{js,ts}`
+    // path.resolve(__dirname, '**/*.entity{.ts,.js}')
   ]
 }

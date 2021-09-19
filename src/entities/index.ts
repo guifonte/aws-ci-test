@@ -1,2 +1,2 @@
-import { Category } from "./category";
-import { Device } from "./device";
+export * from "./category";
+export * from "./device";
