@@ -22,7 +22,7 @@ app.get("/db", async (req, res, next) => {
     }
 })
 
-const port = process.env.PORT ?? 8079  
+const port = process.env.PORT ?? 8080 
 app.listen(port, () => console.log(`Server running at http://localhost:${port}`))
 
 // createConnection().then(async connection => {
