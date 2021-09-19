@@ -13,7 +13,7 @@ createConnection().then(async connection => {
     app.listen(port, () => console.log(`Server running at http://localhost:${port}`))
 
 }).catch(error => {
-    console.log("DB ERROR!!!!")
-    console.log("RDS_HOSTNAME:",process.env.RDS_HOSTNAME,"RDS_PORT:",process.env.RDS_PORT,"RDS_USERNAME:",process.env.RDS_USERNAME,"RDS_PASSWORD:",process.env.RDS_PASSWORD,"RDS_DB_NAME:",process.env.RDS_DB_NAME)
-    console.log(error)
+    console.error("DB ERROR!!!!")
+    console.error("RDS_HOSTNAME:",process.env.RDS_HOSTNAME,"RDS_PORT:",process.env.RDS_PORT,"RDS_USERNAME:",process.env.RDS_USERNAME,"RDS_PASSWORD:",process.env.RDS_PASSWORD,"RDS_DB_NAME:",process.env.RDS_DB_NAME)
+    console.error(error)
 })
