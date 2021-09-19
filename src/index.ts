@@ -1,6 +1,7 @@
 import 'reflect-metadata'
-import { createConnection } from 'typeorm'
+import { createConnection, getRepository } from 'typeorm'
 import express from 'express'
+import { Category } from './entities/category'
 
 
 // app.get("/db", async (req, res, next) => {
@@ -23,6 +24,11 @@ createConnection().then(async connection => {
 
     app.get("/", (req, res, next) => {
         res.send("Hello World")
+    })
+
+    app.get("/categories", async (req, res, next) => {
+        const repo = getRepository(Category)
+        res.json(await repo.find())
     })
 
     const port = process.env.PORT ?? 8080 

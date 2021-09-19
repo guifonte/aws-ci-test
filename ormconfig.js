@@ -8,6 +8,6 @@ module.exports = {
   database: process.env.RDS_DB_NAME,
   synchronize: true,
   entities: [
-    `${process.env.TS_NODE_DEV === undefined ? 'dist' : 'src'}/infra/repos/postgres/entities/index.{js,ts}`
+    `${process.env.TS_NODE_DEV === undefined ? 'dist' : 'src'}/entities/index.{js,ts}`
   ]
 }
