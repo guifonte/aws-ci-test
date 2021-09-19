@@ -2,8 +2,6 @@ import 'reflect-metadata'
 import { createConnection } from 'typeorm'
 import express from 'express'
 
-console.log(process.env.RDS_PASSWORD)
-
 createConnection().then(async connection => {
     const app = express()
     app.use(express.json())
@@ -14,4 +12,8 @@ createConnection().then(async connection => {
     const port = process.env.PORT ?? 8080  
     app.listen(port, () => console.log(`Server running at http://localhost:${port}`))
 
-}).catch(error => console.log(error))
+}).catch(error => {
+    console.log("DB ERROR!!!!")
+    console.log("RDS_HOSTNAME:",process.env.RDS_HOSTNAME,"RDS_PORT:",process.env.RDS_PORT,"RDS_USERNAME:",process.env.RDS_USERNAME,"RDS_PASSWORD:",process.env.RDS_PASSWORD,"RDS_DB_NAME:",process.env.RDS_DB_NAME)
+    console.log(error)
+})
