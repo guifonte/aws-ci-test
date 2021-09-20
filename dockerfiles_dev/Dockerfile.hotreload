@@ -1,0 +1,17 @@
+FROM node:16-alpine
+WORKDIR /usr/app
+COPY package*.json ./
+RUN npm install
+COPY . ./
+# RUN npm run build
+
+ENV RDS_HOSTNAME=host.docker.internal \
+    RDS_PORT=3306 \
+    RDS_USERNAME=tester \
+    RDS_PASSWORD=test \
+    RDS_DB_NAME=test \
+    PORT=3000 
+
+CMD ["npm", "run", "dev"]
+EXPOSE 3000
+

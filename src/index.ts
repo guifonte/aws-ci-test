@@ -1,7 +1,7 @@
 import 'reflect-metadata'
 import { createConnection, getRepository } from 'typeorm'
 import express from 'express'
-import { Category } from './entities/category'
+import { Category, Device } from './entities'
 
 
 // app.get("/db", async (req, res, next) => {
@@ -29,13 +29,18 @@ createConnection().then(async connection => {
     app.get("/categories", async (req, res, next) => {
         const repo = getRepository(Category)
         res.json(await repo.find())
+    })    
+
+    app.get("/devices", async (req, res, next) => {
+        const repo = getRepository(Device)
+        res.json(await repo.find())
     })
 
     const port = process.env.PORT ?? 8080 
     app.listen(port, () => console.log(`Server running at http://localhost:${port}`))
 
 }).catch(error => {
-    console.error("DB ERROR!!!!")
+    console.error("DB ERROR!!!")
     console.error("RDS_HOSTNAME:",process.env.RDS_HOSTNAME,"RDS_PORT:",process.env.RDS_PORT,"RDS_USERNAME:",process.env.RDS_USERNAME,"RDS_PASSWORD:",process.env.RDS_PASSWORD,"RDS_DB_NAME:",process.env.RDS_DB_NAME)
     console.error(error)
 })
