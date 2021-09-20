@@ -3,8 +3,8 @@ version: "3.0"
 services: 
   db:
     image: mysql:5.7
-    volumes:
-      - db_data:/var/lib/mysql
+    # volumes:
+    #   - db_data:/var/lib/mysql
     restart: always
     environment: 
       MYSQL_ROOT_PASSWORD: test
@@ -17,11 +17,11 @@ services:
       - db
     build: 
       context: ..
-      dockerfile: dockerfiles_dev/Dockerfile.localmysql
+      dockerfile: dockerfiles-dev/Dockerfile.localmysql
     ports:
       - "3000:3000"
-    volumes:
-      - api_data:/var/www/api
+    # volumes:
+    #   - api_data:/var/www/api
     restart: always
     environment:
       RDS_HOSTNAME: db

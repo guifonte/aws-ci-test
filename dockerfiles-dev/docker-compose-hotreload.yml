@@ -19,17 +19,17 @@ services:
       - db
     build: 
       context: ..
-      dockerfile: dockerfiles_dev/Dockerfile.hotreload
+      dockerfile: dockerfiles-dev/Dockerfile.hotreload
     command: npm run dev
     ports:
       - "3000:3000"
     volumes:
       - ../src:/usr/app/src
-      - nodemodules:/usr/app/src/node_modules
+      # - nodemodules:/usr/app/src/node_modules
     restart: always
     environment:
       RDS_HOSTNAME: db
 
 volumes: 
-  nodemodules: {}
+  # nodemodules: {}
   db_data: {}

@@ -3,3 +3,5 @@ node_modules
 .elasticbeanstalk
 .env
 README.md
+Dockerfile
+dockerfiles_dev
