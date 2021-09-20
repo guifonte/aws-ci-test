@@ -3,20 +3,6 @@ import { createConnection, getRepository } from 'typeorm'
 import express from 'express'
 import { Category, Device } from './entities'
 
-
-// app.get("/db", async (req, res, next) => {
-//     try {
-//         const conn = await createConnection()
-//         await conn.close()
-//         res.send("db open and closed!")
-//     } catch (error) {
-//         console.error("DB ERROR!!!!")
-//         console.error("RDS_HOSTNAME:",process.env.RDS_HOSTNAME,"RDS_PORT:",process.env.RDS_PORT,"RDS_USERNAME:",process.env.RDS_USERNAME,"RDS_PASSWORD:",process.env.RDS_PASSWORD,"RDS_DB_NAME:",process.env.RDS_DB_NAME)
-//         console.error(error)
-//         res.send("db not ok")
-//     }
-// })
-
 createConnection().then(async connection => {
 
     const app = express()
